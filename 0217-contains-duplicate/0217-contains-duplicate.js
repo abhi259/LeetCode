@@ -3,20 +3,17 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    let numsSet = new Set(nums)
-    
-    console.log(numsSet)
-    console.log(numsSet.size)
 
+const tempSet = new Set()
 
-    if(numsSet.size === nums.length) {
-        return false
-    } else {
+for( let i=0; i<nums.length ; i++ ) {
+    if(tempSet.has(nums[i])) {
         return true
+    } else {
+        tempSet.add(nums[i])
     }
+}
 
-
-
-
-
+return false;
+    
 };
