@@ -3,19 +3,22 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-    s = s.toLowerCase().replace(/[^a-z0-9]/gi,'');
-    console.log(s)
+    
 
-    for(let i=0, j=s.length-1; i<=j; i++, j-- ) {
-        if(s[i] !== s[j]) return false
+    let noSpaces = s.split(' ').join('').toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+
+    console.log(noSpaces)
+
+    let reverseString =''
+
+    for(let i=0; i<noSpaces.length; i++) {
+        reverseString =  noSpaces[i]  + reverseString 
     }
-    return true
-};
 
-// const isPalindrome = s => {
-//   s = s.toLowerCase().replace(/[^a-z0-9]/gi,'');
-//   for (let i = 0, j = s.length - 1; i <= j; i++, j--) {
-//     if (s.charAt(i) !== s.charAt(j)) return false;
-//   }
-//   return true;
-// }
+   if(reverseString === noSpaces ) {
+    return true 
+   } else {
+    return false 
+   }
+    
+};
