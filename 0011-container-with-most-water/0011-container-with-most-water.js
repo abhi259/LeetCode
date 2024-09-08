@@ -18,6 +18,8 @@ var maxArea = function(height) {
             area = tempArea;
         }
 
+        console.log(area)
+
         if( height[lp] < height[rp] ) {
             lp++
         } else {
