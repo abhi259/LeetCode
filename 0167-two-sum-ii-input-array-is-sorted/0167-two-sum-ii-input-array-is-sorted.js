@@ -22,6 +22,8 @@ var twoSum = function(numbers, target) {
             lp = lp + 1 
         }  
     } 
+
+ return []
     
 };
 
