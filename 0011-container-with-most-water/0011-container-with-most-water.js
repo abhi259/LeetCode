@@ -3,34 +3,28 @@
  * @return {number}
  */
 var maxArea = function(height) {
-    
-    let i = 0
-    let j = height.length
 
+    let lp = 0
+    let rp = height.length - 1
     let area = 0
 
-    while( i < j )  {
-        let tempHeight = 0
-        let tempArea = 0
-
-        if(height[i] < height[j]) {
-            tempHeight = height[i]
-            tempArea = tempHeight * (j-i)
-            i++
-        } else {
-            tempHeight = height[j]
-            tempArea = tempHeight * (j-i)
-            j--
-        }
+    while(lp < rp){
         
-    
+        let tempArea = Math.min(height[lp], height[rp] ) * (rp-lp)
 
-        if (area < tempArea ) {
-            area = tempArea
-            console.log(area)
+        area = Math.max(area, tempArea);
+
+        console.log(area)
+
+        if( height[lp] < height[rp] ) {
+            lp++
+        } else if ( height[lp] > height[rp] ) {
+            rp--
+        } else {
+            lp++
+            rp--
         }
+
     }
-
-    return area
-
+    return area 
 };
