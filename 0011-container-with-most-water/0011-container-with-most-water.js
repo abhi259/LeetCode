@@ -12,9 +12,11 @@ var maxArea = function(height) {
         
         const tempArea = Math.min(height[lp], height[rp] ) * (rp-lp)
 
-        area = Math.max(area, tempArea);
+        // area = Math.max(area, tempArea);
 
-        console.log(area)
+        if (tempArea > area) {
+            area = tempArea;
+        }
 
         if( height[lp] < height[rp] ) {
             lp++
