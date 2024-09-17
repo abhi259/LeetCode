@@ -3,26 +3,25 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    
-    let leftPointer = 0
-    let rightPointer = 1
+
     let maxProfit = 0
 
-    while (  rightPointer< prices.length ) {
+    lp = 0
+    rp = 1
+
+    let length = prices.length
+
+    while(rp < length) {
         let currentMax = 0
-        if(prices[leftPointer] < prices[rightPointer] ) {
-            currentMax = prices[rightPointer] - prices[leftPointer]
-            rightPointer++
+        if(prices[lp] < prices[rp] ) {
+            currentMax = prices[rp] - prices[lp]
+            rp ++
         } else {
-            leftPointer = rightPointer
-            rightPointer++
+            lp = rp
+            rp ++
         }
-        
-        if(currentMax > maxProfit) {
-            maxProfit = currentMax
-        }
+
+        if (currentMax > maxProfit) maxProfit = currentMax
     }
-
-    return maxProfit 
-
+    return maxProfit
 };
