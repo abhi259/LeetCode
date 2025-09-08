@@ -7,14 +7,15 @@ var twoSum = function(nums, target) {
 
     let hashMap = {}
 
-    for(let i=0 ; i<nums.length; i++) {
+    for(let i=0 ; i<nums.length ; i++) {
 
-        const requiredNumber = target - nums[i] 
+        let reqNum = target - nums[i] 
 
-        if(hashMap.hasOwnProperty(requiredNumber)) {
-            return [i,hashMap[requiredNumber]]
+        if(hashMap.hasOwnProperty(reqNum)) {
+            return [i,hashMap[reqNum]]
         } else {
             hashMap[nums[i]] = i
         }
     }
+
 };
